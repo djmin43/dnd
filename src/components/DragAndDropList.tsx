@@ -6,8 +6,11 @@ import ListItem from './ListItem'
 const DragAndDropList = () => {
   const [items, setItems] = useState(elements)
 
-  const onDragEnd = () => {
-    
+  const onDragEnd = (result: any) => {
+    const newItems = [...items]
+    const [removed] = newItems.splice(result.source.index, 1)
+    newItems.splice(result.destination.index, 0, removed)
+    setItems(newItems)
   }
 
   return (
@@ -40,3 +43,23 @@ const DragAndDropList = () => {
 }
 
 export default DragAndDropList
+
+// RESULT OBJECT
+// interface DraggableLocation {
+//   droppableId: string;
+//   index: number;
+// }
+
+// interface Combine {
+//   draggableId: string;
+//   droppableId: string;
+// }
+
+// interface DragResult {
+//   reason: 'DROP' | 'CANCEL';
+//   destination?: DraggableLocation;
+//   source: DraggableLocation;
+//   combine?: Combine;
+//   mode: 'FLUID' | 'SNAP';
+//   draggableId: DraggableId;
+// }
