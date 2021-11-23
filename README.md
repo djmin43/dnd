@@ -15,3 +15,6 @@
 - wrap every single list item with this element
 - children element is a function that's called with snapshot property
 
+# side notes
+- source: information where the element was before
+- destination: where element was dropped
