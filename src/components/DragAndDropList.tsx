@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { elements } from '../list'
 import ListItem from './ListItem'
 
 const DragAndDropList = () => {
+  const [items, setItems] = useState(elements)
+
+  const onDragEnd = () => {
+    
+  }
+
   return (
-    <DragDropContext onDragEnd={(result, provided) => {
-      // TODO
-    }}>
+    <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable">
         {(provided, snapshot) => (
           <div
