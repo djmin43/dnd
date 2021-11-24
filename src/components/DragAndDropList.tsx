@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import { resetServerContext } from 'react-beautiful-dnd'
+// import { resetServerContext } from 'react-beautiful-dnd'
 import { elements } from '../list'
 import ListItem from './ListItem'
+import { css } from '@emotion/css'
 
 const DragAndDropList = () => {
   const [items, setItems] = useState(elements)
   const [winReady, setWinReady] = useState(false)
 
-  useEffect(() => {
-    resetServerContext()
-  }, [items])
+  // useEffect(() => {
+  //   resetServerContext()
+  // }, [items])
 
   useEffect(() => {
     setWinReady(true)
@@ -30,9 +31,10 @@ const DragAndDropList = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       {winReady &&
-      <Droppable droppableId="droppable">
+      <Droppable droppableId="droppable" direction="horizontal">
         {(provided, snapshot) => (
           <div
+            className={containerStyle}
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
@@ -57,5 +59,9 @@ const DragAndDropList = () => {
     </DragDropContext>
   )
 }
+
+const containerStyle = css`
+  display: inline-flex;
+`
 
 export default DragAndDropList
