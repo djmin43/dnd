@@ -1,12 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { resetServerContext } from 'react-beautiful-dnd'
 import { elements } from '../list'
 import ListItem from './ListItem'
 
 const DragAndDropList = () => {
+
+  resetServerContext()
   const [items, setItems] = useState(elements)
 
+  useEffect(() => {
+    resetServerContext()
+  }, [items])
+
   const onDragEnd = (result: any) => {
+    if (!result.destination) {
+      return;
+  }
+    console.log('result', result)
     const newItems = [...items]
     const [removed] = newItems.splice(result.source.index, 1)
     newItems.splice(result.destination.index, 0, removed)
@@ -21,7 +32,7 @@ const DragAndDropList = () => {
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
-            {elements.map((item, index) => (
+            {items.map((item, index) => (
               <Draggable draggableId={item.id} index={index} key={index}>
                 {(provided, snapshot) => (
                   <div
