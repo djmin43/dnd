@@ -1,13 +1,12 @@
 import type { NextPage } from 'next'
 import DragAndDropList from '../src/components/DragAndDropList'
 import DragList from '../src/components/DragList'
-import { css } from '@emotion/css'
+import KanbanBoard from '../src/components/KanbanBoard'
 
 const Home: NextPage = () => {
   return (
     <div >
-      <DragAndDropList />
-      <DragList />
+      <KanbanBoard />
     </div>
   )
 }
