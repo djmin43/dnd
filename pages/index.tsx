@@ -6,6 +6,7 @@ import KanbanBoard from '../src/components/KanbanBoard'
 const Home: NextPage = () => {
   return (
     <div >
+      main
       <KanbanBoard />
     </div>
   )
