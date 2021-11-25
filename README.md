@@ -13,7 +13,14 @@
 - must be wrapped around a function that returns a React element.
 - this function is called with internal params and a snapshot with information about the STATE of the list.
 - can be dropped on by a Draggable. Draggable must be contained.
-- main props: droppableId and direction!
+- main props: droppableId(string) and direction!
+- has children function with two arguments that returns a ReactElement!
+  - provided:
+    - "provided.innerRef": In order for the droppable to function correctly, you must bind the provided.innerRef to the highest possible DOM node in the ReactElement. We do this in order to avoid needing to use ReactDOM to look up your DOM node. (ref={provided.innerRef})
+    - "provided.placeholder": it holds space for droppable. it is placed of the component that has ref provided.
+    - "provided.droppableProps": samely placed as provided.innerRef. (insdie div, for example)
+  - snapshot: literally snapshot of the drag motion
+    - for example, 'snapshot.isDraggingOver returns boolean if item is being dragged over'
 
 # Draggable
 - container for all list elements.

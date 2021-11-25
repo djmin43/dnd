@@ -38,6 +38,7 @@ const DragAndDropList = () => {
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
+            {provided.placeholder}
             {items.map((item, index) => (
               <Draggable draggableId={item.id} index={index} key={item.id}>
                 {(provided, snapshot) => (
