@@ -52,7 +52,32 @@ const DragAndDropList = () => {
                 )}
               </Draggable>
             ))}
-
+          </div>
+        )}
+      </Droppable>
+      }
+       {winReady &&
+      <Droppable droppableId="droppable" direction="horizontal">
+        {(provided, snapshot) => (
+          <div
+            className={containerStyle}
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+          >
+            {provided.placeholder}
+            {items.map((item, index) => (
+              <Draggable draggableId={item.id} index={index} key={item.id}>
+                {(provided, snapshot) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                  >
+                    <ListItem item={item} />
+                  </div>
+                )}
+              </Draggable>
+            ))}
           </div>
         )}
       </Droppable>

@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <div >
       main
-      <KanbanBoard />
+      <DragAndDropList />
     </div>
   )
 }

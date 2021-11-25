@@ -29,6 +29,15 @@
 - it is POSSIBLE to reorder dragable within its home droppable.
 - it is POSSIBLE to move another.
 - "Droppable" is free to control what it allows to be dropped on it.
+- every draggable has a drag handle -> "drag handle" can be the draggable element itself, or a child of the draggable.
+- REQUIRED props:
+  - draggableId (must be string)
+  - index: number that matches the order of the draggable. (must be consecutive. must be unique within droppable)
+- children func (provided, snapshot): "React" children of a draggable must be a function that retunrs a "ReactNode"
+  - "innerRef"
+  - "provided.draggableProps": object that contains data attr and inline style.
+  - must add key!
+  
 
 # side notes
 - source: information where the element was before
