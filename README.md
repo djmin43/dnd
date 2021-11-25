@@ -24,8 +24,11 @@
 
 # Draggable
 - container for all list elements.
-- wrap every single list item with this element
-- children element is a function that's called with snapshot property
+- wrap every single list item with this element.
+- children element is a function that's called with snapshot property.
+- it is POSSIBLE to reorder dragable within its home droppable.
+- it is POSSIBLE to move another.
+- "Droppable" is free to control what it allows to be dropped on it.
 
 # side notes
 - source: information where the element was before
