@@ -3,6 +3,7 @@
 # DragDropContext
 - context that contians all the informaiton about drag-and-drop lists. 
 - it accepts the "onDrag" function -- key callback for controlling the data of list.
+- having nested DragDropContext is not supported.
 
 # Droppable
 - contains LISTS and DROP ZONE.
