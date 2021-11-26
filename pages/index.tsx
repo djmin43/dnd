@@ -7,7 +7,6 @@ const Home: NextPage = () => {
   return (
     <div >
       main
-      <DragAndDropList />
     </div>
   )
 }
