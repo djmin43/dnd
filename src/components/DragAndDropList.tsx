@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-// import { resetServerContext } from 'react-beautiful-dnd'
 import { elements } from '../list'
 import ListItem from './ListItem'
 import { css } from '@emotion/css'
@@ -8,10 +7,6 @@ import { css } from '@emotion/css'
 const DragAndDropList = () => {
   const [items, setItems] = useState(elements)
   const [winReady, setWinReady] = useState(false)
-
-  // useEffect(() => {
-  //   resetServerContext()
-  // }, [items])
 
   useEffect(() => {
     setWinReady(true)
@@ -21,7 +16,6 @@ const DragAndDropList = () => {
     if (!result.destination) {
       return;
   }
-    console.log('result', result)
     const newItems = [...items]
     const [removed] = newItems.splice(result.source.index, 1)
     newItems.splice(result.destination.index, 0, removed)
